@@ -1,0 +1,333 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{tabularx}
+\usepackage{booktabs} 
+\usepackage{float}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{imakeidx}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{light-gray}{gray}{0.97}
+\lstset{
+  basicstyle=\footnotesize\fontfamily{txtt}\selectfont, 
+  numberstyle=\tiny,          
+  numbersep=5pt,             
+  tabsize=2,                
+  extendedchars=true,      
+  breaklines=true,        
+  showspaces=false,      
+  showtabs=false,       
+  xleftmargin=17pt,
+  framexleftmargin=17pt,
+  framexrightmargin=5pt,
+  framexbottommargin=4pt,
+  backgroundcolor=\color{light-gray}, 
+  showstringspaces=face,
+  keywordstyle=\color{blue},
+  commentstyle=\color{mygreen},
+  stringstyle=\color{mymauve},
+  literate=%
+     {á}{{\'a}}1
+     {í}{{\'i}}1
+     {é}{{\'e}}1
+     {ý}{{\'y}}1
+     {ú}{{\'u}}1
+     {ó}{{\'o}}1
+     {ě}{{\v{e}}}1
+     {š}{{\v{s}}}1
+     {č}{{\v{c}}}1
+     {ř}{{\v{r}}}1
+     {ž}{{\v{z}}}1
+     {ď}{{\v{d}}}1
+     {ť}{{\v{t}}}1
+     {ň}{{\v{n}}}1                
+     {ů}{{\r{u}}}1
+     {Á}{{\'A}}1
+     {Í}{{\'I}}1
+     {É}{{\'E}}1
+     {Ý}{{\'Y}}1
+     {Ú}{{\'U}}1
+     {Ó}{{\'O}}1
+     {Ě}{{\v{E}}}1
+     {Š}{{\v{S}}}1
+     {Č}{{\v{C}}}1
+     {Ř}{{\v{R}}}1
+     {Ž}{{\v{Z}}}1
+     {Ď}{{\v{D}}}1
+     {Ť}{{\v{T}}}1
+     {Ň}{{\v{N}}}1                
+     {Ů}{{\r{U}}}1    
+}
+\lstloadlanguages{
+  Python
+}
+
+\definecolor{punct}{rgb}{0.4,0,0}
+\definecolor{delim}{rgb}{0.08,0,0.82}
+\definecolor{numb}{rgb}{0.6, 0, 0.6 }
+
+\lstdefinelanguage{json}{
+    basicstyle=\footnotesize\fontfamily{txtt}\selectfont, 
+    numbers=left,
+    numberstyle=\footnotesize\fontfamily{txtt}\selectfont, 
+    numbersep=5pt,
+    tabsize=2,
+    extendedchars=true,
+    breaklines=true,
+    showspaces=false,
+    showtabs=false,       
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    stepnumber=1,
+    showstringspaces=false,
+    frame=lines,
+    backgroundcolor=\color{light-gray},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1}
+      {á}{{\'a}}1
+      {í}{{\'i}}1
+      {é}{{\'e}}1
+      {ý}{{\'y}}1
+      {ú}{{\'u}}1
+      {ó}{{\'o}}1
+      {ě}{{\v{e}}}1
+      {š}{{\v{s}}}1
+      {č}{{\v{c}}}1
+      {ř}{{\v{r}}}1
+      {ž}{{\v{z}}}1
+      {ď}{{\v{d}}}1
+      {ť}{{\v{t}}}1
+      {ň}{{\v{n}}}1                
+      {ů}{{\r{u}}}1
+      {Á}{{\'A}}1
+      {Í}{{\'I}}1
+      {É}{{\'E}}1
+      {Ý}{{\'Y}}1
+      {Ú}{{\'U}}1
+      {Ó}{{\'O}}1
+      {Ě}{{\v{E}}}1
+      {Š}{{\v{S}}}1
+      {Č}{{\v{C}}}1
+      {Ř}{{\v{R}}}1
+      {Ž}{{\v{Z}}}1
+      {Ď}{{\v{D}}}1
+      {Ť}{{\v{T}}}1
+      {Ň}{{\v{N}}}1                
+      {Ů}{{\r{U}}}1,
+}
+\title{\Huge \textbf{LOGICA COMBINACIONAL\\[3em]}
+\subtitle{ ELECTRONICA DIGITAL\\[3em]}}
+\author{
+\Large Caballero Morachimo,\\
+Diana\\[2em]
+\and \Large Cotrina Alvitrez,\\
+Richard\\[2em]
+\and \Large Díaz Torres,\\
+Juan\\ [2em]
+\and \Large Miñano,\\
+Yomira\\[2em]
+\and  \Large Reyes Venancio,\\
+Jhonn\\[2em]
+\and \Large Riera,\\
+Anderson\\[2em]
+\and \Large Vargas Rodríguez,\\
+Ezelier\\[2em]
+\and \Large Zarate Izaguirre,\\
+Albert\\[2em]
+}
+\date{\LARGE \textbf{Noviembre 2015}}
+\makeatletter
+\renewcommand\@biblabel[1]{}
+%% \renewcommand\@biblabel[1]{\textbullet}
+\makeatother
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{3}
+
+\renewcommand{\thesubsubsection}{}
+
+\makeatletter
+  \def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+  \let\subsubsectionignore\@gobbletwo
+  \let\latex@numberline\numberline
+  \def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+\newcommand{\celda}[3][t]{%
+  \begin{tabular}[#1]{@{}#2@{}}#3\end{tabular}}
+  
+\definecolor{light-gray}{gray}{0.95}
+
+\newcommand{\inlinecode}[1]{%
+  \colorbox{light-gray}{\texttt{#1}}
+}
+\newcommand{\PNG}[5][\linewidth]{%
+  \begin{figure}[H]
+    %% #5
+    \caption{#3}\label{#4}
+    \centering\makebox[\textwidth]{\includegraphics[width=#1\paperwidth]{pictures/#2.png}}
+  \end{figure}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ELECTRONICA DIGITAL}
+\lhead{Lógica Combinacional}
+\rfoot{Página \thepage}
+\begin{document}
+\maketitle
+\newpage\tableofcontents
+\newpage
+\part{INTRODUCCIÓN}
+    La rama Digital de la Electrónica utiliza el sistema de numeración binario, en el cual únicamente existen dos dígitos: ‘0’ y ‘1’, denominados bits. Esto es debido a que los dispositivos van a ser modelados como interruptores, los cuales pueden tener dos valores: conducción y en corte. Dichos interruptores serán controlados para poder variar entre los dos estados que pueden tomar.\\\\
+    Una de las principales ventajas de utilizar el álgebra de conmutación radica en que las operaciones básicas de este álgebra (operación AND, OR y NOT) tienen un equivalente directo en términos de circuitos. Estos circuitos equivalentes a estas operaciones reciben el nombre de puertas lógicas. No obstante, el resto de circuitos lógicos básicos también reciben el nombre de puertas, aunque su equivalencia se produce hacia una composición de las operaciones lógicas básicas.\\\\
+    Las tres puertas fundamentales reciben el mismo nombre que los operadores, es decir, existen las puertas AND, puertas OR y puertas NOT. La última puerta recibe el nombre más usual de inversor.\\\\
+    El Programa ISIS, Intelligent Schematic Input System (Sistema de Enrutado de Esquemas Inteligente) permite diseñar el plano eléctrico del circuito que se desea realizar concomponentes muy variados, desde simples resistencias, hasta alguno que otro microprocesador o microcontrolador, incluyendo fuentes de alimentación, generadores deseñales y muchos otros componentes con prestaciones diferentes. Los diseños realizados en Isis pueden ser simulados en tiempo real, mediante el módulo VSM, asociado directamente con ISIS.
+\newpage
+\part{FUNCIONES LÓGICAS - COMPUERTAS LÓGICAS}
+     \section{\large\textbf{Estados lógicos y función lógica}}
+        Los elementos que constituyen los circuitos digitales se caracterizan por admitir sólo dos estados. Es el caso por ejemplo de un conmutador que sólo puede estar ENCENDIDO o APAGADO, o una válvula hidráulica que sólo pueda estar ABIERTA o CERRADA.\\
+        Para representar estos dos estados se usan los símbolos ‘0’ y ‘1’. Generalmente, el ‘1’ se asociará al estado de conmutador CERRADO, ENCENDIDO, VERDADERO, y el ‘0’ se asocia al estado de conmutador ABIERTO, APAGADO o FALSO.\\
+        La función lógica es aquella que relaciona las entradas y salidas de un circuito lógico. Puede expresarse mediante:\\
+        \subsection{\textbf{Tabla de verdad:}} 
+            Es ella se representan a la izquierda todos los estados posibles de las entradas (en el ejemplo, el estado del conmutador) y a la derecha los estados correspondientes a la salida (en el ejemplo, la lámpara).\\
+        \subsection{\textbf{Función booleana:}}
+            Es una expresión matemática que emplea los operadores booleanos.\\
+    \section{\large\textbf{Puertas lógicas elementales}}
+        Una puerta lógica es un elemento que toma una o más señales binarias de entrada y produce una salida binaria función de estas entradas. Cada puerta lógica se representa mediante un símbolo lógico. Hay tres tipos elementales de puertas: AND, OR y NOT. A partir de ellas se pueden construir otras más complejas, como las puertas: NAND, NOR y XOR.
+        \subsection{\textbf{Puerta AND}}
+            El funcionamiento de la puerta lógica AND es equivalente al de un circuito con dos conmutadores en serie. En dicho circuito es necesario que los dos conmutadores estén cerrados para que la lámpara se encienda.\\
+            La relación entre las posiciones de los conmutadores y el estado de la lámpara se muestra en la tabla de verdad.\\
+            La salida de una puerta AND es verdadera (‘1’) si, y sólo si, todas las entradas son verdaderas.
+        \subsection{\textbf{Puerta OR}}
+            El funcionamiento de esta puerta es equivalente al de dos conmutadores en paralelo. En esta configuración la lámpara se encenderá si cualquiera de los dos conmutadores se cierra.\\
+            En este caso la relación es la siguiente: la lámpara se encenderá si y sólo si, el conmutador A O (OR) el B están cerrados. Esta función se describe en la tabla de verdad.\\
+        \subsection{\textbf{Puerta NOT}}
+            La salida de una puerta NOT es siempre el complementario de la entrada, de tal manera que si la entrada es ‘0’ la salida es ‘1’ y viceversa. Se conoce también como INVERSOR y posee una única entrada. \\
+            La operación lógica se conoce como negación y se escribe: L = A (negado de A).\\
+            El indicador de negación es un círculo ( o ) que indica inversión o complementación cuando aparece en la entrada o en la salida de un elemento lógico. El símbolo triangular sin el círculo representaría una función en la que el estado de la salida sería idéntico al de la entrada, esta función recibe el nombre de buffer. Los buffers se usan para cambiar las propiedades eléctricas de una señal sin afectar al estado lógico de la misma.\\
+        \subsection{\textbf{Puerta NAND}}
+            Equivale a una puerta AND seguida de un INVERSOR. Su nombre viene de Not-AND . El símbolo lógico es una puerta AND con un círculo en la salida. La tabla de verdad es igual al de la puerta AND con el estado de salida negado. Una puerta NAND puede tener más de dos entradas.\\
+        
+        \begin{figure}[htp]
+        \centering
+        \includegraphics[width=13cm, height=20cm]{compuertas-logicas}
+        \end{figure}
+    \newpage
+    \part{LÓGICA COMBINACIONAL: Formas Canónicas de Funciones Lógicas}
+        Un circuito combinacional es un sistema que contiene operaciones booleanas básicas (AND, OR, NOT), algunas entradas y un juego de salidas, como cada salida corresponde a una función lógica individual, un circuito combinacional a menudo implementa varias funciones booleanas diferentes, es muy importante recordar éste hecho, cada salida representa una función booleana diferente.\\
+        \section{\large\textbf{Expresiones Canónicas}}
+            Existen dos formas básicas de expresiones canónicas que pueden ser implementadas en dos niveles de compuertas:
+            \begin{enumerate}[a)]
+            \item Suma de productos o expansión de minterminos
+            \item Producto de sumas o expansión de maxterminos
+            \end{enumerate}
+            Permiten asociar a una función una expresión algebraica única.\\
+            La tabla de verdad también es una representación única para una función booleana.\\
+            \subsection{Suma de Productos}
+                También conocida como expansión de minterminos.\\
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=12cm, height=5cm]{minterm}
+                \end{figure}
+                \newline Términos son productos (o minterms)
+                \begin{itemize}
+                \item productos AND de literales – para las combinacion de input para los que el output es verdad
+                \item en cada producto cada variable aparece exactamente una vez (puede estar invertida)
+                \end{itemize}
+                \begin{center}
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{ c c c|c } 
+                A & B & C & minterms \\ 
+                \hline
+                 0 & 0 & 0 & A'B'C' m0\\ 
+                 0 & 0 & 1 & A’B’C  m1\\ 
+                 0 & 1 & 0 & A’BC’  m2\\ 
+                 0 & 1 & 1 & A’BC   m3\\ 
+                 1 & 0 & 0 & AB’C’  m4\\ 
+                 1 & 0 & 1 & AB’C   m5\\ 
+                 1 & 1 & 0 & ABC’   m6\\ 
+                 1 & 1 & 1 & ABC    m7\\ 
+                 \end{tabular}
+                \end{center}
+                \newline \textbf{F en forma canónica:}\\
+                \newline
+                F(A, B, C) = $\sum_m(1,3,5,6,7)$\\
+                F(A, B, C)  = m1 + m3 + m5 + m6 + m7\\
+                F(A, B, C)  = A’B’C + A’BC + AB’C + ABC’ + ABC\\
+                \newline
+                \textbf{forma canónica <> forma mínima}\\
+                \newline
+                F(A, B, C) = A’B’C + A’BC + AB’C + ABC + ABC’\\
+                F(A, B, C) = (A’B’ + A’B + AB’ + AB)C + ABC’\\
+                F(A, B, C) = ((A’ + A)(B’ + B))C + ABC’\\
+                F(A, B, C) = C + ABC’\\
+                F(A, B, C) = ABC’ + C\\
+                F(A, B, C) = AB + C
+                \newpage
+            \subsection{Producto de Sumas}
+                También conocida como expansión de maxterminos.\\
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=12cm, height=6cm]{maxterm}
+                \end{figure}
+                \newline
+                Términos son sumas (o maxterminos)
+                \begin{itemize}
+                \item suma OR de literales – para las combinacion de input para los que el output es falso
+                \item en cada producto cada variable aparece exactamente una vez (puede estar invertida)
+                \end{itemize}
+                \begin{center}
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{ c c c|c } 
+                 A & B & C & maxterms \\ 
+                 \hline
+                 0 & 0 & 0 & A+B+C M0\\ 
+                 0 & 0 & 1 & A+B+C’ M1\\ 
+                 0 & 1 & 0 & A+B’+C M2\\ 
+                 0 & 1 & 1 & A+B’+C’ M3\\ 
+                 1 & 0 & 0 & A’+B+C M4\\ 
+                 1 & 0 & 1 & A’+B+C’ M5\\ 
+                 1 & 1 & 0 & A’+B’+C M6\\ 
+                 1 & 1 & 1 & A’+B’+C’ M7\\ 
+                 \end{tabular}
+                \end{center}
+                \newline\textbf{F en forma canónica:\\}
+                \newline
+                F(A, B, C) = $\prod_M(0,2,4)$\\
+                F(A, B, C) = M0 . M2 . M4\\
+                F(A, B, C) = (A + B + C) (A + B’ + C) (A’ + B + C)\\
+                \newline\textbf{forma canónica <> forma mínima\\}
+                \newline
+                F(A, B, C) = (A + B + C) (A + B’ + C) (A’ + B + C)\\
+                F(A, B, C) = (A + B + C) (A + B’ + C) (A + B + C) (A’ + B + C)\\
+                F(A, B, C) = (A + C) (B + C)\\
+\end{document}
