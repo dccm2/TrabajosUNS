@@ -404,7 +404,7 @@ Albert\\[2em]
                 De acuerdo con los pasos vistos anteriormente, el diagrama de cada función quedará del siguiente modo:\\
                 \begin{figure}[H]
                 \centering
-                \includegraphics[width=8cm, height=5cm]{simp}
+                \includegraphics[width=9cm, height=5cm]{simp}
                 \caption{Simplificación de una función de 3 variables}
                 \end{figure}
                 La función simplificada tendrá tres sumandos en un caso y dos productos en el otro. Si nos fijamos en el mapa correspondiente a la suma de productos, observamos que en el lazo 1 cambia la variable A (en la celda 0 es negada y en la 4 directa), en el lazo 2 es la C y en el lazo 3 vuelve a ser A. por lo tanto, la ecuación simplificada es:\\\\
@@ -413,19 +413,20 @@ Albert\\[2em]
                 F = (B + C’)(A’ + B’ + C)
     \newpage \part{EJERCICIOS PROPUESTOS}
         \section{\textbf{Ejercicio 01}}
+            
             Se tiene la siguiente función:\\\\
             F = a'.b+a'.c'+a.b'.c'+a'.b'\\\\
-            Simplificar e implementar la función.\\\\
+            Simplificar e implementar la función.
             \begin{itemize}
             \item Forma Canónica:\\\\
             F = a'.b'+a'c'+a.b'.c'+a'.b\\\\
             F = a'.b'(c+c')+a'.c'(b+b')+a.b'.c'+a'.b(c+c')\\\\
             F = a'.b'.c+a'.b'.c'+a.b.c+a'.b'.c'+a.b'.c'+a'.b.c+a'.b.c'\\\\
-            F = a'.b'.c+a'.b'.c'+a'.b.c'+a'.b.c+a.b.c\\\\
-            \item Expresión Significativa\\
+            F = a'.b'.c+a'.b'.c'+a'.b.c'+a'.b.c+a.b.c
+            \item Expresión Significativa:
                 \begin{figure}[H]
                 \centering
-                \includegraphics[width=5cm, height=2cm]{tablae1}
+                \includegraphics[width=7cm, height=3cm]{tablae1}
                 \end{figure}
             \item Tabla de verdad:
                 \begin{center}
@@ -443,9 +444,74 @@ Albert\\[2em]
                  1 & 1 & 1 & 0\\ 
                  \end{tabular}
                 \end{center}
-            \item Implementar la función con Compuertas NAND
+            \item Implementar la función con Compuertas NAND:\\
+                    F = a'+b'.c' = ((a'+b'.c')')' = ((a')'.(b'.c')')' = (a.(b'.c')')'
                 \begin{figure}[H]
                 \centering
-                \includegraphics[width=5cm, height=2cm]{circuitoe1}
+                \includegraphics[width=8cm, height=4cm]{circuitoe1}
                 \end{figure}
+            \item Simulación en Proteus
+                \begin{figure}[H]
+                \centering
+                \includegraphics[width=13cm, height=8cm]{proteuse1}
+                \end{figure}
+            \end{itemize}
+        \newpage
+        \section{\textbf{Ejercicio 02}}
+            Un proceso de fabricación es controlado por cuatro censores A,B,C y D, de forma que sus salidas son 0 o 1, según estén desactivados o activados respectivamente. El proceso deberá detenerse cuando está activado el sensor A  o cuando estén dos sensores cualquiera. Hallar:\\    
+            \begin{itemize}
+            \item Tabla de Verdad:
+                \begin{center}
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{c c c c|c}
+                A & B & C & D & S\\
+                \hline
+                0 & 0 & 0 & 0 & 1\\ 
+                0 & 0 & 0 & 1 & 1\\ 
+                0 & 0 & 1 & 0 & 1\\ 
+                0 & 0 & 1 & 1 & 0\\ 
+                0 & 1 & 0 & 0 & 1\\ 
+                0 & 1 & 0 & 1 & 0\\ 
+                0 & 1 & 1 & 0 & 0\\ 
+                0 & 1 & 1 & 1 & 0\\ 
+                1 & 0 & 0 & 0 & 0\\ 
+                1 & 0 & 0 & 1 & 0\\ 
+                1 & 0 & 1 & 0 & 0\\ 
+                1 & 0 & 1 & 1 & 0\\ 
+                1 & 1 & 0 & 0 & 0\\ 
+                1 & 1 & 0 & 1 & 0\\ 
+                1 & 1 & 1 & 0 & 0\\ 
+                1 & 1 & 1 & 1 & 0\\
+                \end{tabular}
+                \end{center}
+            \item Simplificar la función por Karnaugh:
+                \begin{figure}[H]
+                \centering
+                \includegraphics[width=6cm, height=3cm]{tablae2}
+                \end{figure}
+            \item Dibujar el circuito
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=10cm, height=4cm]{circuitoe2}
+                    \end{figure}
+            \item Simular el circuito en Proteus:
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=14cm, height=9cm]{proteuse2}
+                    \end{figure}
+            \end{itemize}
+    \newpage
+    \part{BIBLIOGRAFÍA} 
+        \newline
+        \begin{enumerate}
+        \item Algebra Booleana, Aplicaciones Tecnológicas - Carlos Barco Gómez. Editorial: Universidad de Caldas. Ciencias exactas y naturales. 
+        \newline
+        \item Logica Digital y Diseño de Computadores - M. Morris Mano. Editorial: Prentice Hall.
+        \newline
+        \item $infor.uva.es/~jjalvarez/asignaturas/fundamentos/lectures/digital/Tema2_combinacionales.pdf$
+        \newline
+        \item $uhu.es/raul.jimenez/SEA/guia.pdf$
+        \newline
+        \item $aguilarmicros.mex.tl/imagesnew2/0/0/0/0/2/1/4/2/9/6/Comp_L.pdf$
+        \end{enumerate}
 \end{document}
