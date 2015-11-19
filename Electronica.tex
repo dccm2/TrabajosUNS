@@ -212,15 +212,52 @@ Albert\\[2em]
     Las tres puertas fundamentales reciben el mismo nombre que los operadores, es decir, existen las puertas AND, puertas OR y puertas NOT. La última puerta recibe el nombre más usual de inversor.\\\\
     El Programa ISIS, Intelligent Schematic Input System (Sistema de Enrutado de Esquemas Inteligente) permite diseñar el plano eléctrico del circuito que se desea realizar concomponentes muy variados, desde simples resistencias, hasta alguno que otro microprocesador o microcontrolador, incluyendo fuentes de alimentación, generadores deseñales y muchos otros componentes con prestaciones diferentes. Los diseños realizados en Isis pueden ser simulados en tiempo real, mediante el módulo VSM, asociado directamente con ISIS.
 \newpage
-\part{FUNCIONES LÓGICAS - COMPUERTAS LÓGICAS}
-     \section{\large\textbf{Estados lógicos y función lógica}}
+\chapter{FUNCIONES LÓGICAS}
+     \part{\large\textbf{Estados lógicos, función lógica y Compuertas Lógicas}}
         Los elementos que constituyen los circuitos digitales se caracterizan por admitir sólo dos estados. Es el caso por ejemplo de un conmutador que sólo puede estar ENCENDIDO o APAGADO, o una válvula hidráulica que sólo pueda estar ABIERTA o CERRADA.\\
         Para representar estos dos estados se usan los símbolos ‘0’ y ‘1’. Generalmente, el ‘1’ se asociará al estado de conmutador CERRADO, ENCENDIDO, VERDADERO, y el ‘0’ se asocia al estado de conmutador ABIERTO, APAGADO o FALSO.\\
         La función lógica es aquella que relaciona las entradas y salidas de un circuito lógico. Puede expresarse mediante:\\
-        \subsection{\textbf{Tabla de verdad:}} 
-            Es ella se representan a la izquierda todos los estados posibles de las entradas (en el ejemplo, el estado del conmutador) y a la derecha los estados correspondientes a la salida (en el ejemplo, la lámpara).\\
-        \subsection{\textbf{Función booleana:}}
-            Es una expresión matemática que emplea los operadores booleanos.\\
+        \section{\textbf{Función booleana:}}
+            Es una función cuyo dominio son las palabras conformadas por los valores binarios 0 ó 1 ("falso" o "verdadero", respectivamente), y cuyo dominio son ambos valores 0 y 1.\\
+            Existen distintas formas de representar una función lógica, entre las que podemos destacar las siguientes:
+            \begin{itemize}
+            \item Algebraica
+            \item Por tabla de Verdad
+            \item Numérica
+            \item Gráfica
+            \end{itemize}
+            \subsection{\textbf{Algebraica}}
+                Se utiliza cuando se realizan operaciones algebraicas. A continuación se ofrece un ejemplo con distintas formas en las que se puede expresar algebraicamente una misma función de tres variables.
+                \begin{enumerate}[$a)$]
+                \item F = [(A + BC’)’ + ABC]’ + AB’C
+                \item F = A’BC’ + AB’C’ + AB’C + ABC’
+                \item F = (A + B + C)(A + B + C’)(A + B’ + C’)(A’ + B’ + C’)
+                \item F = BC’ + AB’
+                \item F = (A + B)(B’ + C’)
+                \item F = [(BC’)’(CB)´ (AB’)’]’
+                \item F = [(A + B)’ + (B’ + C’)’]’
+                \end{enumerate}
+                La expresión a) puede proceder de un problema lógico planteado o del paso de unas especificaciones a lenguaje algebraico. Las formas b) y c) reciben el nombre expresiones canónicas: de suma de productos (sum-of-products, SOP, en inglés), la b), y de productos de sumas (product-of-sums, POS, en inglés), la c); su característica principal es la aparición de cada una de las variables (A, B y C) en cada uno de los sumandos o productos.\\
+            \subsection{\textbf{Tabla de Verdad:}} 
+                En ella se representan a la izquierda todos los estados posibles de las entradas y a la derecha los estados correspondientes a la salida.\\
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=5cm, height=6cm]{tabla}
+                \caption{Ejemplo de una Tabla de Verdad}
+                \end{figure}
+             \subsection{\textbf{Numérica}}
+                La representación numérica es una forma simplificada de representar las expresiones canónicas. Si consideramos el criterio de sustituir una variable sin negar por un 1 y una negada por un 0, podremos representar el término, ya sea una suma o un producto, por un número decimal equivalente al valor binario de la combinación. Por ejemplo, los siguientes términos canónicos se representarán del siguiente modo (observe que se toma el orden de A a D como de mayor a menor peso):\\
+                \begin{itemize}
+                \item AB’CD = 10112 = 1110
+                \item A’ + B + C’ + D’ = 01002 = 410
+                \end{itemize}
+             \subsection{\textbf{Grágica}}
+                La representación gráfica es la que se utiliza en circuitos y esquemas electrónicos.\\
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=8cm, height=4cm]{grafica}
+                \caption{Representación gráfica de una función lógica}
+                \end{figure}
     \section{\large\textbf{Puertas lógicas elementales}}
         Una puerta lógica es un elemento que toma una o más señales binarias de entrada y produce una salida binaria función de estas entradas. Cada puerta lógica se representa mediante un símbolo lógico. Hay tres tipos elementales de puertas: AND, OR y NOT. A partir de ellas se pueden construir otras más complejas, como las puertas: NAND, NOR y XOR.
         \subsection{\textbf{Puerta AND}}
@@ -320,7 +357,7 @@ Albert\\[2em]
                  1 & 1 & 1 & A’+B’+C’ M7\\ 
                  \end{tabular}
                 \end{center}
-                \newline\textbf{F en forma canónica:\\}
+                \newline\textbf{F en forma canónica:}
                 \newline
                 F(A, B, C) = $\prod_M(0,2,4)$\\
                 F(A, B, C) = M0 . M2 . M4\\
@@ -330,4 +367,85 @@ Albert\\[2em]
                 F(A, B, C) = (A + B + C) (A + B’ + C) (A’ + B + C)\\
                 F(A, B, C) = (A + B + C) (A + B’ + C) (A + B + C) (A’ + B + C)\\
                 F(A, B, C) = (A + C) (B + C)\\
+            \subsection{Mapa de Karnaugh}
+                Este método consiste en formar diagramas de 2n cuadros, siendo n el número de variables. Cada cuadro representa una de las diferentes combinaciones posibles y se disponen de tal forma que se puede pasar de un cuadro a otro en las direcciones horizontal o vertical, cambiando únicamente una variable, ya sea en forma negada o directa.\\
+                Este método se emplea fundamentalmente para simplificar funciones de hasta cuatro variables. Para un número superior utilizan otros métodos como el numérico. A continuación pueden observarse los diagramas, también llamados mapas de Karnaugh, para dos, tres y cuatro variables.\\
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=3cm, height=3cm]{karnaugh2}
+                \caption{Mapa de Karnaugh para una función lógica de 2 variables}
+                \end{figure}
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=5cm, height=6cm]{karnaugh3}
+                \caption{Mapa de Karnaugh para una función lógica de 3 variables}
+                \end{figure}
+                \begin{figure}[htp]
+                \centering
+                \includegraphics[width=5cm, height=6cm]{karnaugh4}
+                \caption{Mapa de Karnaugh para una función lógica de 4 variables}
+                \end{figure}
+                Es una práctica común numerar cada celda con el número decimal correspondiente al término canónico que albergue, para facilitar el trabajo a la hora de plasmar una función canónica.\\
+                Para simplificar una función lógica por el método de Karnaugh se seguirán los siguientes pasos:\\
+                \begin{enumerate}
+                    \item Se dibuja el diagrama correspondiente al número de variables de la función a simplificar.
+                    \item Se coloca un 1 en los cuadros correspondientes a los términos canónicos que forman parte de la función.
+                    \item Se agrupan mediante lazos los unos de casillas adyacentes siguiendo estrictamente las siguientes reglas:
+                        \begin{enumerate}
+                        \item Dos casillas son adyacentes cuando se diferencian únicamente en el estado de una sola variable.
+                        \item Cada lazo debe contener el mayor número de unos posible, siempre que dicho número sea potencia de dos (1, 2, 4, etc.)
+                        \item Los lazos pueden quedar superpuestos y no importa que haya cuadrículas que pertenezcan a dos o más lazos diferentes.
+                        \item Se debe tratar de conseguir el menor número de lazos con el mayor número de unos posible.
+                        \end{enumerate}
+                    \item La función simplificada tendrá tantos términos como lazos posea el diagrama. Cada término se obtiene eliminando la o las variables que cambien de estado en el mismo lazo.
+                \end{enumerate}
+                A modo de ejemplo se realizan dos simplificaciones de una misma función a partir de sus dos formas canónicas:\\
+                F= $\sum_3(0,2,3,4,7)$ = $\prod_3(1,2,6)$\\
+                De acuerdo con los pasos vistos anteriormente, el diagrama de cada función quedará del siguiente modo:\\
+                \begin{figure}[H]
+                \centering
+                \includegraphics[width=8cm, height=5cm]{simp}
+                \caption{Simplificación de una función de 3 variables}
+                \end{figure}
+                La función simplificada tendrá tres sumandos en un caso y dos productos en el otro. Si nos fijamos en el mapa correspondiente a la suma de productos, observamos que en el lazo 1 cambia la variable A (en la celda 0 es negada y en la 4 directa), en el lazo 2 es la C y en el lazo 3 vuelve a ser A. por lo tanto, la ecuación simplificada es:\\\\
+                F = B’C’ + A’B + BC\\\\
+                Razonando de modo similar en el mapa de productos de sumas, nos quedará lo siguiente:\\\\
+                F = (B + C’)(A’ + B’ + C)
+    \newpage \part{EJERCICIOS PROPUESTOS}
+        \section{\textbf{Ejercicio 01}}
+            Se tiene la siguiente función:\\\\
+            F = a'.b+a'.c'+a.b'.c'+a'.b'\\\\
+            Simplificar e implementar la función.\\\\
+            \begin{itemize}
+            \item Forma Canónica:\\\\
+            F = a'.b'+a'c'+a.b'.c'+a'.b\\\\
+            F = a'.b'(c+c')+a'.c'(b+b')+a.b'.c'+a'.b(c+c')\\\\
+            F = a'.b'.c+a'.b'.c'+a.b.c+a'.b'.c'+a.b'.c'+a'.b.c+a'.b.c'\\\\
+            F = a'.b'.c+a'.b'.c'+a'.b.c'+a'.b.c+a.b.c\\\\
+            \item Expresión Significativa\\
+                \begin{figure}[H]
+                \centering
+                \includegraphics[width=5cm, height=2cm]{tablae1}
+                \end{figure}
+            \item Tabla de verdad:
+                \begin{center}
+                \renewcommand{\arraystretch}{1.5}
+                \begin{tabular}{ c c c|c } 
+                A & B & C & F \\ 
+                \hline
+                 0 & 0 & 0 & 1\\ 
+                 0 & 0 & 1 & 1\\ 
+                 0 & 1 & 0 & 1\\ 
+                 0 & 1 & 1 & 1\\ 
+                 1 & 0 & 0 & 1\\ 
+                 1 & 0 & 1 & 0\\ 
+                 1 & 1 & 0 & 0\\ 
+                 1 & 1 & 1 & 0\\ 
+                 \end{tabular}
+                \end{center}
+            \item Implementar la función con Compuertas NAND
+                \begin{figure}[H]
+                \centering
+                \includegraphics[width=5cm, height=2cm]{circuitoe1}
+                \end{figure}
 \end{document}
